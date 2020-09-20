@@ -1,16 +1,24 @@
 import React, {Component} from 'react'
-import View from "react-native-web/dist/exports/View";
-import Text from "react-native-web/dist/exports/Text";
-import {StyleSheet} from "react-native";
+import {View, Text, Button, StyleSheet} from 'react-native';
+
 
 export default class SettingsScreen extends Component {
+
+    static navigationOptions = {
+        title: 'Settings'
+    }
+    handleGoToDetails = () => {
+        this.props.navigation.navigate('Details')
+    };
+
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.textContainer}>Dette er Settings Screen </Text>
+                <Button title = "Take me to Details screen" onPress = {this.handleGoToDetails} />
             </View>
-        )
-    }
+        );
+    };
 }
 
 
