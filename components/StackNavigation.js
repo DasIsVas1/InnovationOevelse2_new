@@ -4,13 +4,13 @@ import DetailsScreen from "./NavigationComponents/DetailsScreen";
 
 const SettingStack = createStackNavigator(
     {
-        Settings: {screen: SettingsScreen },
-        Details: {screen: DetailsScreen },
+        Settings: {screen: SettingsScreen},
+        Details: {screen: DetailsScreen},
     },
     {
         initialRouteName: 'Settings',
         navigationOptions: {
-          //  title: 'Main'
+            title: 'Main'
         }
     }
 );

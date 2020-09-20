@@ -1,23 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import HomeScreen from "./components/HomeScreen";
-import SettingsScreen from "./components/NavigationComponents/SettingsScreen";
-
-
+import {createAppContainer} from "react-navigation";
+import {createBottomTabNavigator} from "react-navigation-tabs";
+import SettingStack from "./components/StackNavigation";
+import {Entypo} from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
 
 /*
 Husk at begge skal importeres.
 1. skal vi have en container med som bruges i default (rd. "MAIN") metoden
 2. skal vi have importer selve bottom navigation componenten
  */
-import {createAppContainer} from "react-navigation";
-import {createBottomTabNavigator} from "react-navigation-tabs";
-import {createStackNavigator} from "react-navigation-stack";
-import DetailsScreen from "./components/NavigationComponents/DetailsScreen";
-import stackNavigator from "./components/NavigationComponents/DetailsScreen";
-import SettingStack from "./components/StackNavigation";
-
-
 
 const tabNavigator = createBottomTabNavigator(
     /*
@@ -25,22 +19,46 @@ const tabNavigator = createBottomTabNavigator(
     */
 
     {
-      Home: {
-          screen: HomeScreen
-      },
-      Settings: {
-          /*
-          Kalder SettingsStack for at have navigation frem og tilbage med stacks
-           */
-          screen: SettingStack
-      },
+        Home: {
+            screen: HomeScreen,
+            navigationOptions: {
+                /*Navn*/
+                tabBarLabel: "Home Page",
+                /*Ikon*/
+                tabBarIcon: ({tintColor}) => (
+                    <Entypo name="home" size={24} color={tintColor}/>
+                )
+            },
+        },
+        Settings: {
+            /*
+            Kalder SettingsStack for at have navigation frem og tilbage med stacks
+             */
+            screen: SettingStack,
+            navigationOptions: {
+                tabBarLabel: "Settings",
+                tabBarIcon: ({tintColor}) => (
+                    <Ionicons name="ios-settings" size={24} color={tintColor}/>
+                )
+            }
+        },
 
-},
+    },
     /*
     Generelle label indstillinger
      */
-    {tabBarOptions: { labelStyle: {fontSize: 24 } } }
-);
+    {
+        tabBarOptions: {
+            showIcon: true,
+            labelStyle: {
+                fontSize: 15,
+            },
+            activeTintColor: 'blue',
+            inactiveTintColor: 'gray',
+            size: 40
+        }
+    }
+)
 
 const styles = StyleSheet.create({
     container: {
@@ -52,11 +70,6 @@ const styles = StyleSheet.create({
 });
 
 export default createAppContainer(tabNavigator);
-
-
-
-
-
 
 
 // Nedenstående er fjernet for at react naviagation kan fungere. Hele vores App function erstattes af navigations function

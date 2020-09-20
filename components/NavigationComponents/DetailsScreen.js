@@ -15,12 +15,31 @@ export default class SettingsScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.textContainer}>Go to settings </Text>
-                <Button title = "Take me to Settings Screen" onPress = {this.handleGoToSettings} />
+                <Text style={styles.textContainer}>Dette er Details Screen </Text>
+                <Button title="Take me to Settings Screen" onPress={this.handleGoToSettings}/>
             </View>
         );
     };
-}
+};
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#249800',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    textContainer: {
+        fontSize: 100,
+        color: '#FFFFFF',
+        textAlign: 'center',
+        paddingRight: 15,
+        paddingLeft: 15,
+    }
+
+});
 
 
 /*
@@ -45,8 +64,6 @@ export default stackNavigator
  */
 
 
-
-
 /*
 export default class DetailsScreen extends Component {
     render() {
@@ -61,21 +78,3 @@ export default class DetailsScreen extends Component {
 
  */
 
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#249800',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
-    textContainer: {
-        fontSize: 100,
-        color: '#FFFFFF',
-        textAlign: 'center',
-        paddingRight: 15,
-        paddingLeft: 15,
-    }
-
-});

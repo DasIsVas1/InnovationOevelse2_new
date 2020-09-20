@@ -9,8 +9,8 @@ export default class HomeScreen extends Component {
             <View style = {styles.container}>
                 <Text style = {styles.textContainer}>Dette er Home Screen </Text>
             </View>
-        )
-    }
+        );
+    };
 }
 
 
